@@ -1,0 +1,62 @@
+ROUTING BASICO
+1. ir al archivo index.html
+2. añadir lo siguiente 
+<script src="node_modules/angular2/bundles.router.dev.js"</script>
+
+3.crear la etiquta base 
+<base ref="/">
+
+4. añadir los binding provider al main.ts
+
+import {ROUTER_PROVIDER} from "angular2/router"
+
+5. pasar como parametros al metodo bootstrap
+
+bootstarp{AppComponent,[ROUTER_PROVIDER]}
+
+6.definir lar rutas en el app.component
+
+import{ROUTER_DIRECTIVES} from "angular2/router";
+
+7. añadir el routerconfig 
+
+import {RouteConfig} from "angular2/router";
+
+8. cargar el router
+
+import {Router} from "angular2/router";
+
+NOTA:
+
+Puede hacerse los pasos 6 7 y 8 en uno solo 
+
+import {ROUTER_DIRECTIVES,RouterConfig,Router} from "angular2/router";
+
+9. en el compontent debemos añadir lo siguiente
+
+@Component({
+	selector:"my-app",
+	templateUrl: "app/view/peliculas.html",
+	directives: [PeliculasComponent,PeliculasFooterComponent, ROUTER_DIRECTIVES]
+})
+
+10. Utilizzmos el decorador @RouterConfig para definir la ruta 
+11 luego debemos poner el path de la ruta y luego el nombre que debe comenzar siempre por mayusculas la primera letra 
+12. Indicar el componente de esa ruta 
+13 podemos decirle que esta ruta la use por defecto 
+
+@RouteConfig([
+	{path:"/peliculas",name:"Peliculas", component:PeliculasListComponent, useAsDefault:true}
+])
+
+14. dentro de la pagina pellicula.html se debe cambiar el tag pelicula-list por el siguiente
+
+<h1>{{titulo}}</h1>
+<router-outlet></router-outlet>
+<peliculas-footer></peliculas-footer>
+
+
+
+
+
+
