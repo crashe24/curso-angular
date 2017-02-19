@@ -1,0 +1,35 @@
+<p>Peliculas Favoritas</p>
+<p>{{mostrarServicio}}</p>
+<ul *ngIf="mostrarDatos===true">
+			<li><strong>Titulo:</strong> {{pelicula.titulo}}</li>
+				<li><strong>Director:</strong> {{pelicula.director}}</li>
+				<li><strong>Anio</strong> {{pelicula.anio}}</li>
+		</ul>		
+
+	<!--BOTON-->	
+<button (click)="onShowData()" [class.showIn]="mostrarDatos ===true">mostrar Datos</button>
+<button (click)="onHideData()" [class.showIn]="mostrarDatos ===false">Ocultar Datos</button>
+
+
+<button (click)="onShowHideData(true)" [class.showIn]="mostrarDatos ===true">Con Datos</button>
+
+<button (click)="onShowHideData(false)" [class.showIn]="mostrarDatos ===false">Sin Datos</button>
+	<!--FIN BOTON-->	
+
+	<!--DATABINDIGN-->
+	<p> 
+		<strong>Modificar titulo de la pelicula:</strong>
+		<input type="text" [(ngModel)]="pelicula.titulo">
+	</p>
+
+<h1>LISTA DE PELICULAS</h1>
+
+<!--LISTA DE VALORES-->
+		<ul *ngFor="#peliculaTmp of peliculas">
+			<li><strong>ID:</strong>{{peliculaTmp.id}}</li>
+			<li (click)="onChangePeliculaFavorita(peliculaTmp)"
+			class="pelicula-title" [class.clicked]="peliculaElegida.id ===peliculaTmp.id"><strong>TITULO:</strong>{{peliculaTmp.titulo}}</li>
+			<li><strong>DIRECTOR:</strong>{{peliculaTmp.director}}</li>
+			<li *ngIf="peliculaTmp.anio"><strong>ANIO:</strong>{{peliculaTmp.anio}}</li>
+		</ul>
+	<!--LISTA DE VALORES-->
