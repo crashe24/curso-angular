@@ -1,4 +1,4 @@
-System.register(["angular2/core", "./component/peliculas-list.component", "./component/peliculas-footer.component"], function(exports_1, context_1) {
+System.register(["angular2/core", "./component/peliculas-list.component", "./component/peliculas-footer.component", "./component/contacto.component", "./component/registrar-pelicula.component", "angular2/router"], function(exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
     var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -10,7 +10,7 @@ System.register(["angular2/core", "./component/peliculas-list.component", "./com
     var __metadata = (this && this.__metadata) || function (k, v) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
-    var core_1, peliculas_list_component_1, peliculas_footer_component_1;
+    var core_1, peliculas_list_component_1, peliculas_footer_component_1, contacto_component_1, registrar_pelicula_component_1, router_1;
     var AppComponent;
     return {
         setters:[
@@ -22,6 +22,15 @@ System.register(["angular2/core", "./component/peliculas-list.component", "./com
             },
             function (peliculas_footer_component_1_1) {
                 peliculas_footer_component_1 = peliculas_footer_component_1_1;
+            },
+            function (contacto_component_1_1) {
+                contacto_component_1 = contacto_component_1_1;
+            },
+            function (registrar_pelicula_component_1_1) {
+                registrar_pelicula_component_1 = registrar_pelicula_component_1_1;
+            },
+            function (router_1_1) {
+                router_1 = router_1_1;
             }],
         execute: function() {
             AppComponent = (function () {
@@ -32,8 +41,31 @@ System.register(["angular2/core", "./component/peliculas-list.component", "./com
                     core_1.Component({
                         selector: "my-app",
                         templateUrl: "app/view/pelicula.html",
-                        directives: [peliculas_list_component_1.PeliculasListComponent, peliculas_footer_component_1.PeliculasFooter]
-                    }), 
+                        directives: [peliculas_list_component_1.PeliculasListComponent,
+                            contacto_component_1.ContactoComponent, peliculas_footer_component_1.PeliculasFooter, router_1.ROUTER_DIRECTIVES,
+                            registrar_pelicula_component_1.RegistrarPeliculaComponent]
+                    }),
+                    router_1.RouteConfig([{
+                            path: "/peliculas",
+                            name: "Peliculas",
+                            component: peliculas_list_component_1.PeliculasListComponent,
+                            useAsDefault: true },
+                        {
+                            path: "/contacto",
+                            name: "Contacto",
+                            component: contacto_component_1.ContactoComponent,
+                            useAsDefault: false },
+                        {
+                            path: "/crearPelicula",
+                            name: "CrearPelicula",
+                            component: registrar_pelicula_component_1.RegistrarPeliculaComponent,
+                            useAsDefault: false },
+                        {
+                            path: "/crearPelicula/:titulo",
+                            name: "CrearPeliculaBasadaEnOtra",
+                            component: registrar_pelicula_component_1.RegistrarPeliculaComponent,
+                            useAsDefault: false }
+                    ]), 
                     __metadata('design:paramtypes', [])
                 ], AppComponent);
                 return AppComponent;

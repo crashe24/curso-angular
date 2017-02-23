@@ -30,6 +30,11 @@ System.register(["angular2/core", "./mock.peliculas"], function(exports_1, conte
                 PeliculaService.prototype.getObtenerListadoPeliculas = function () {
                     return mock_peliculas_1.PELICULAS;
                 };
+                PeliculaService.prototype.insertPelicula = function (pelicula) {
+                    Promise.resolve(mock_peliculas_1.PELICULAS).then(function (peliculas) {
+                        return peliculas.push(pelicula);
+                    });
+                };
                 PeliculaService = __decorate([
                     core_1.Injectable(), 
                     __metadata('design:paramtypes', [])
