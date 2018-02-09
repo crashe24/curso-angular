@@ -61,7 +61,7 @@ System.register(["angular2/core", "./component/peliculas-list.component", "./com
                             component: registrar_pelicula_component_1.RegistrarPeliculaComponent,
                             useAsDefault: false },
                         {
-                            path: "/crearPelicula/:titulo",
+                            path: "/crearPelicula/:titulo/:director/:anio",
                             name: "CrearPeliculaBasadaEnOtra",
                             component: registrar_pelicula_component_1.RegistrarPeliculaComponent,
                             useAsDefault: false }

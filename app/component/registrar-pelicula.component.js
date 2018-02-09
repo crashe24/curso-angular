@@ -37,7 +37,7 @@ System.register(["angular2/core", ".././model/pelicula", "angular2/router", "../
                 RegistrarPeliculaComponent.prototype.onCrearPelicula = function (titulo, director, anio) {
                     var pelicula = new pelicula_1.Pelicula(77, titulo, director, anio);
                     console.log(pelicula);
-                    this._peliculasServices.insertPelicula(pelicula);
+                    this._peliculasServices.insertPelicula(this.pelicula);
                     //para que vuelva a la pantalla de inicio
                     this._router.navigate(["Peliculas"]);
                 };
@@ -46,6 +46,12 @@ System.register(["angular2/core", ".././model/pelicula", "angular2/router", "../
                 RegistrarPeliculaComponent.prototype.ngOnInit = function () {
                     this.tituloPelicula =
                         this._routeParams.get("titulo");
+                    this.nuevaPelicula = new pelicula_1.Pelicula(0, this._routeParams.get("titulo"), this._routeParams.get("director"), this._routeParams.get("anio"));
+                };
+                //para el OnInit
+                RegistrarPeliculaComponent.prototype.onSubmit = function () {
+                    this._peliculasServices.insertPelicula(this.nuevaPelicula);
+                    this._router.navigate(["Peliculas"]);
                 };
                 RegistrarPeliculaComponent = __decorate([
                     core_1.Component({

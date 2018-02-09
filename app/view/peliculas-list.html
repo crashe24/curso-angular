@@ -32,6 +32,10 @@
 			<li><strong>DIRECTOR:</strong>{{peliculaTmp.director}}</li>
 			<li *ngIf="peliculaTmp.anio"><strong>ANIO:</strong>{{peliculaTmp.anio}}</li>
 
-			<li><a [routerLink]="['CrearPeliculaBasadaEnOtra',{titulo: peliculaTmp.titulo}]">Crear Pelicula basada en otra</a></li>
+			<li><a [routerLink]="['CrearPeliculaBasadaEnOtra',{
+			titulo: peliculaTmp.titulo,
+			director: peliculaTmp.director,
+			anio: peliculaTmp.anio
+			}]">Crear Pelicula basada en otra</a></li>
 		</ul>
 	<!--LISTA DE VALORES-->

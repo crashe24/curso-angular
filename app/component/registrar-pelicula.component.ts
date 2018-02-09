@@ -15,7 +15,7 @@ export class RegistrarPeliculaComponent implements OnInit{
 
 
 		public tituloPelicula:string = "";
-		
+		public nuevaPelicula:Pelicula;
 
 
 		constructor(private _peliculasServices:PeliculaService,
@@ -27,7 +27,7 @@ export class RegistrarPeliculaComponent implements OnInit{
 		onCrearPelicula(titulo,director,anio){
 			let pelicula:Pelicula= new Pelicula(77,titulo,director,anio);
 			console.log(pelicula);
-			this._peliculasServices.insertPelicula(pelicula);
+			this._peliculasServices.insertPelicula(this.pelicula);
 			//para que vuelva a la pantalla de inicio
 			this._router.navigate(["Peliculas"]);
 		}
@@ -38,7 +38,18 @@ export class RegistrarPeliculaComponent implements OnInit{
 			ngOnInit():any{
 				this.tituloPelicula=
 				this._routeParams.get("titulo");
+				this.nuevaPelicula = new Pelicula(
+					0,
+					this._routeParams.get("titulo"),
+					this._routeParams.get("director"),
+					this._routeParams.get("anio")
+					);
 			}
 
 		//para el OnInit
+
+		onSubmit(){
+			this._peliculasServices.insertPelicula(this.nuevaPelicula);
+			this._router.navigate(["Peliculas"]);
+		}
 }

@@ -35,7 +35,7 @@ RegistrarPeliculaComponent]
 	useAsDefault: false},
 
 		{
-	path:"/crearPelicula/:titulo", 
+	path:"/crearPelicula/:titulo/:director/:anio", 
 	name:"CrearPeliculaBasadaEnOtra", 
 	component: RegistrarPeliculaComponent,
 	useAsDefault: false}
